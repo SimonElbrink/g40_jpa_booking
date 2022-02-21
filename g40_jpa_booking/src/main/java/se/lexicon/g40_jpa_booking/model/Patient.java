@@ -8,12 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDate;
 
+import static se.lexicon.g40_jpa_booking.model.EntityConstants.GENERATOR;
+import static se.lexicon.g40_jpa_booking.model.EntityConstants.UUID_GENERATOR;
+
 @Entity
 public class Patient {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(generator = GENERATOR)
+    @GenericGenerator(name = "UUID", strategy = UUID_GENERATOR)
     @Column(name = "id", updatable = false)
     private String id;
     @Column(name = "pnr" , unique = true, length = 15)
