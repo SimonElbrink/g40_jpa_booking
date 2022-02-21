@@ -5,14 +5,9 @@ import se.lexicon.g40_jpa_booking.model.Patient;
 import java.util.List;
 import java.util.Optional;
 
-public interface PatientDAO {
+public interface PatientDAO extends DAOGenericCRUD<Patient, String>{
 
-    Patient save(Patient patient);
-    Optional<Patient> findById(String id);
-    List<Patient> findAll();
     Optional<Patient> findByPnr(String pnr);
     List<Patient> findByName(String name);
-
-    void delete(String id);
 
 }
