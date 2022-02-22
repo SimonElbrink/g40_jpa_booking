@@ -2,10 +2,7 @@ package se.lexicon.g40_jpa_booking.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 import static se.lexicon.g40_jpa_booking.model.EntityConstants.GENERATOR;
@@ -20,6 +17,9 @@ public class Premises {
     @Column(updatable = false)
     private String id;
     private String name;
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "fk_address_id")
+    private Address address;
 
     public Premises(String id, String name) {
         this.id = id;
@@ -43,6 +43,14 @@ public class Premises {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
