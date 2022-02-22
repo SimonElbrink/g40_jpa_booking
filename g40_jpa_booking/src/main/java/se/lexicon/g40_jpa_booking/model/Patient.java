@@ -2,10 +2,7 @@ package se.lexicon.g40_jpa_booking.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 import static se.lexicon.g40_jpa_booking.model.EntityConstants.GENERATOR;
@@ -16,14 +13,19 @@ public class Patient {
 
     @Id
     @GeneratedValue(generator = GENERATOR)
-    @GenericGenerator(name = "UUID", strategy = UUID_GENERATOR)
+    @GenericGenerator(name = GENERATOR, strategy = UUID_GENERATOR)
     @Column(name = "id", updatable = false)
     private String id;
+
     @Column(name = "pnr" , unique = true, length = 15)
     private String pnr;
     private String firstName;
     private String lastName;
     private LocalDate birthdate;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_contact_info_id")
+    private ContactInfo contactInfo;
 
     public Patient(String id, String pnr, String firstName, String lastName, LocalDate birthdate) {
         this.id = id;
@@ -70,5 +72,13 @@ public class Patient {
 
     public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
+    }
+
+    public ContactInfo getContactInfo() {
+        return contactInfo;
+    }
+
+    public void setContactInfo(ContactInfo contactInfo) {
+        this.contactInfo = contactInfo;
     }
 }
