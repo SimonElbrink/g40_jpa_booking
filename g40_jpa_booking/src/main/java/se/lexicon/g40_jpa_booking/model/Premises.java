@@ -71,10 +71,11 @@ public class Premises {
         return bookings;
     }
 
-    //TODO Handle Setter in a bidirectional way.
+    // Handle Setter in a bidirectional way.
     // Make sure to set relationships of both ends
     // Empty we need to remove relationships
     // Or set the relationships.
+    //TODO Test what happens with bookings that is made but was not included in the param list? - Removed?
     public void setBookings(List<Booking> bookings) {
         if (bookings == null) bookings = new ArrayList<>();
 
