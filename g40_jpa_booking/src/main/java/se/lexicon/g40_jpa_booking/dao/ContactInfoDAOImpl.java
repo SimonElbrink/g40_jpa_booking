@@ -3,6 +3,7 @@ package se.lexicon.g40_jpa_booking.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import se.lexicon.g40_jpa_booking.dao.interfaces.ContactInfoDAO;
 import se.lexicon.g40_jpa_booking.model.entity.ContactInfo;
 
 
@@ -12,7 +13,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public class ContactInfoDAOImpl implements ContactInfoDAO{
+public class ContactInfoDAOImpl implements ContactInfoDAO {
 
     private final EntityManager entityManager;
 

@@ -3,6 +3,7 @@ package se.lexicon.g40_jpa_booking.dao;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import se.lexicon.g40_jpa_booking.dao.interfaces.PatientDAO;
 import se.lexicon.g40_jpa_booking.model.entity.Patient;
 
 import javax.persistence.EntityManager;
@@ -10,7 +11,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 @Repository
-public class PatientDAOImpl implements PatientDAO{
+public class PatientDAOImpl implements PatientDAO {
 
     @PersistenceContext
     EntityManager entityManager;

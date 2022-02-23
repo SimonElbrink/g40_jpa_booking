@@ -2,6 +2,7 @@ package se.lexicon.g40_jpa_booking.dao;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import se.lexicon.g40_jpa_booking.dao.interfaces.PremisesDAO;
 import se.lexicon.g40_jpa_booking.model.entity.Premises;
 
 import javax.persistence.EntityManager;
@@ -10,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public class PremisesDAOImpl implements PremisesDAO{
+public class PremisesDAOImpl implements PremisesDAO {
 
     private final EntityManager entityManager;
 

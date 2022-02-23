@@ -1,4 +1,4 @@
-package se.lexicon.g40_jpa_booking.dao;
+package se.lexicon.g40_jpa_booking.dao.interfaces;
 
 import se.lexicon.g40_jpa_booking.model.entity.Address;
 

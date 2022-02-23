@@ -3,6 +3,7 @@ package se.lexicon.g40_jpa_booking.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import se.lexicon.g40_jpa_booking.dao.interfaces.AddressDAO;
 import se.lexicon.g40_jpa_booking.model.entity.Address;
 
 import javax.persistence.EntityManager;
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public class AddressDAOImpl implements AddressDAO{
+public class AddressDAOImpl implements AddressDAO {
 
     private final EntityManager entityManager;
 
