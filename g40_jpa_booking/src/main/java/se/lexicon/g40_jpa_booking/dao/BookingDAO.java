@@ -1,6 +1,6 @@
 package se.lexicon.g40_jpa_booking.dao;
 
-import se.lexicon.g40_jpa_booking.model.Booking;
+import se.lexicon.g40_jpa_booking.model.entity.Booking;
 
 import java.time.LocalDateTime;
 import java.util.List;

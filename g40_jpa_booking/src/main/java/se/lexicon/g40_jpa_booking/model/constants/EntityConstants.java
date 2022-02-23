@@ -1,4 +1,4 @@
-package se.lexicon.g40_jpa_booking.model;
+package se.lexicon.g40_jpa_booking.model.constants;
 
 public class EntityConstants {
     public static final String GENERATOR = "UUID";

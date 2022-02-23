@@ -1,7 +1,7 @@
 package se.lexicon.g40_jpa_booking.dao;
 
 
-import se.lexicon.g40_jpa_booking.model.ContactInfo;
+import se.lexicon.g40_jpa_booking.model.entity.ContactInfo;
 
 import java.util.Optional;
 

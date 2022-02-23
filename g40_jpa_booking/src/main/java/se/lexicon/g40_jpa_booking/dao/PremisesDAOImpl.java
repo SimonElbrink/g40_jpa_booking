@@ -2,7 +2,7 @@ package se.lexicon.g40_jpa_booking.dao;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import se.lexicon.g40_jpa_booking.model.Premises;
+import se.lexicon.g40_jpa_booking.model.entity.Premises;
 
 import javax.persistence.EntityManager;
 import java.util.List;

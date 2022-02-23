@@ -1,6 +1,6 @@
 package se.lexicon.g40_jpa_booking.dao;
 
-import se.lexicon.g40_jpa_booking.model.Address;
+import se.lexicon.g40_jpa_booking.model.entity.Address;
 
 import java.util.Optional;
 

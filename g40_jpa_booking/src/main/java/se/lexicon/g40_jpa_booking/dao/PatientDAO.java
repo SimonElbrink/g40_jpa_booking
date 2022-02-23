@@ -1,6 +1,6 @@
 package se.lexicon.g40_jpa_booking.dao;
 
-import se.lexicon.g40_jpa_booking.model.Patient;
+import se.lexicon.g40_jpa_booking.model.entity.Patient;
 
 import java.util.List;
 import java.util.Optional;

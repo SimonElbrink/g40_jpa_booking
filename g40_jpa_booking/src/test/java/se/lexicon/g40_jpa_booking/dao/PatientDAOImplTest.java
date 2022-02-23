@@ -8,9 +8,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEnti
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import se.lexicon.g40_jpa_booking.model.Patient;
+import se.lexicon.g40_jpa_booking.model.entity.Patient;
 
-import javax.persistence.EntityManager;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;

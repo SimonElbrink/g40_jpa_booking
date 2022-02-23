@@ -1,4 +1,4 @@
-package se.lexicon.g40_jpa_booking.model;
+package se.lexicon.g40_jpa_booking.model.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -8,8 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Objects;
 
-import static se.lexicon.g40_jpa_booking.model.EntityConstants.GENERATOR;
-import static se.lexicon.g40_jpa_booking.model.EntityConstants.UUID_GENERATOR;
+import static se.lexicon.g40_jpa_booking.model.constants.EntityConstants.GENERATOR;
+import static se.lexicon.g40_jpa_booking.model.constants.EntityConstants.UUID_GENERATOR;
 
 @Entity
 public class ContactInfo {

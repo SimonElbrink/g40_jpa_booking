@@ -1,4 +1,4 @@
-package se.lexicon.g40_jpa_booking.model;
+package se.lexicon.g40_jpa_booking.model.constants;
 
 public enum UserRole {
     ROLE_SUPER_ADMIN(),

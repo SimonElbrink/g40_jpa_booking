@@ -9,7 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.transaction.annotation.Transactional;
-import se.lexicon.g40_jpa_booking.model.ContactInfo;
+import se.lexicon.g40_jpa_booking.model.entity.ContactInfo;
 
 import java.util.Arrays;
 import java.util.List;
