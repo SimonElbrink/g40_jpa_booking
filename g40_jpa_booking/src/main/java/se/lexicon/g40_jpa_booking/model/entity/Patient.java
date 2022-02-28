@@ -3,6 +3,7 @@ package se.lexicon.g40_jpa_booking.model.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import static se.lexicon.g40_jpa_booking.model.constants.EntityConstants.GENERATOR;

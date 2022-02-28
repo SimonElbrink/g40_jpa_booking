@@ -1,13 +1,10 @@
-package se.lexicon.g40_jpa_booking.dao;
+package se.lexicon.g40_jpa_booking.dao.interfaces;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 import se.lexicon.g40_jpa_booking.model.entity.Patient;
 
 import java.time.LocalDate;
@@ -17,14 +14,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
-@SpringBootTest
-@AutoConfigureTestEntityManager
-@AutoConfigureTestDatabase
-@Transactional
-class PatientDAOImplTest {
+ @DataJpaTest
+class PatientDAOTest {
 
     @Autowired
-    PatientDAOImpl testObject;
+    PatientDAO testObject;
 
     @Autowired
     TestEntityManager entityManager;
@@ -58,40 +52,11 @@ class PatientDAOImplTest {
     }
 
     @Test
-    void findById() {
-        //Arrange
-        String id = persistedPatients.get(1).getId();
-        System.out.println(id);
-
-        //Act
-        Optional<Patient> foundPatient = testObject.findById(id);
-
-        //Assert
-        assertTrue(foundPatient.isPresent());
-
-        Patient patient = foundPatient.get();
-
-        assertEquals("Fredrik", patient.getFirstName());
-        assertEquals("Olsson", patient.getLastName());
-        assertEquals("196001014321", patient.getPnr());
-        assertEquals(LocalDate.parse("1960-01-01"), patient.getBirthdate());
-
-    }
-
-    @Test
     void findByPnr() {
-        String pnr = "1960-01-01-4321";
+        String pnr = "196001014321";
         Optional<Patient> patient = testObject.findByPnr(pnr);
         assertTrue(patient.isPresent());
     }
-
-    @Test
-    void findAll() {
-        int expected = 3;
-        List<Patient> patientsFound = testObject.findAll();
-        assertEquals(expected, patientsFound.size());
-    }
-
 
     @Test
     void findByName() {
@@ -101,15 +66,6 @@ class PatientDAOImplTest {
         List<Patient> patientList = testObject.findByName(name);
 
         assertEquals(expected, patientList.size());
-    }
-
-    @Test
-    void delete() {
-        String id = persistedPatients.get(2).getId();
-
-        testObject.delete(id);
-
-        assertNull(entityManager.find(Patient.class, id));
     }
 }
 
