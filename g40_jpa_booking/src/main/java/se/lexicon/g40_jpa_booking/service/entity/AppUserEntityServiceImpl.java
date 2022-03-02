@@ -15,8 +15,8 @@ import java.util.List;
 @Service
 public class AppUserEntityServiceImpl implements AppUserEntityService{
 
-    AppUserDAO appUserDAO;
-    AppRoleDAO appRoleDAO;
+    private final AppUserDAO appUserDAO;
+    private final AppRoleDAO appRoleDAO;
 
     @Autowired
     public AppUserEntityServiceImpl(AppUserDAO appUserDAO, AppRoleDAO appRoleDAO) {
