@@ -25,7 +25,7 @@ public class AppRoleDAOImpl implements AppRoleDAO {
     @Override
     public Optional<AppRole> findByUserRole(UserRole userRole) {
         return entityManager.createQuery("SELECT r FROM AppRole r WHERE r.Role = :role", AppRole.class)
-                .setParameter("role", userRole)
+                .setParameter("role", userRole.toString())
                 .getResultStream()
                 .findFirst();
     }

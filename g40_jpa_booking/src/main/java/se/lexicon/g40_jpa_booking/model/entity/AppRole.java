@@ -36,6 +36,10 @@ public class AppRole {
         Role = role;
     }
 
+    public AppRole(String role) {
+        Role = role;
+    }
+
     public AppRole() {
     }
 
