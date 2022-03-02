@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 public class ContactInfoEntityServiceImpl implements ContactInfoEntityService{
 
-    ContactInfoDAO contactInfoDAO;
+    private final ContactInfoDAO contactInfoDAO;
 
     @Autowired
     public ContactInfoEntityServiceImpl(ContactInfoDAO contactInfoDAO) {
