@@ -11,7 +11,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import static se.lexicon.g40_jpa_booking.validation.messages.ValidationMessages.*;
 
@@ -31,7 +30,7 @@ public class PatientForm implements Serializable {
     @NotBlank(message = MANDATORY_FIELD, groups = {OnPut.class, OnPost.class})
     private String lastName;
     @NotNull(message = MANDATORY_FIELD, groups = {OnPut.class, OnPost.class})
-    private LocalDate birthDate;
+    private String birthDate;
 
     @NotNull(message = MANDATORY_FORM, groups = OnPost.class)
     @Valid private ContactInfoForm contactInfo;
@@ -74,11 +73,11 @@ public class PatientForm implements Serializable {
         this.lastName = lastName;
     }
 
-    public LocalDate getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

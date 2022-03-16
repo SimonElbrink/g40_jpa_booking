@@ -17,20 +17,20 @@
             </div>
         </div>
         <div class="card-body">
-            <form method="post">
+            <form method="post" th:object="${form}" th:action="@{/public/register/process}" >
                 <h6 class="card-subtitle mb-2">Inloggningsinformation:</h6>
                 <input id="userId" type="hidden">
                 <div class="form-floating mb-2">
-                    <input class="form-control" type="text" id="username">
+                    <input class="form-control" type="text" id="username" th:field="*{userCredentials.username}">
                     <label for="username">Användarnamn:</label>
                 </div>
                 <div class="row g-2">
                     <div class="col-md form-floating">
-                        <input class="form-control" type="password" id="password">
+                        <input class="form-control" type="password" id="password" th:field="*{userCredentials.password}">
                         <label for="password">Lösenord:</label>
                     </div>
                     <div class="col-md form-floating">
-                        <input class="form-control" type="password" id="repeat" name="repeat">
+                        <input class="form-control" type="password" id="repeat" name="repeat" th:field="*{userCredentials.passwordConfirm}">
                         <label for="repeat">Upprepa lösenord:</label>
                     </div>
                 </div>
@@ -39,21 +39,21 @@
                 <input id="patientId" type="hidden">
                 <div class="row g-2 mb-2">
                     <div class="col-md form-floating">
-                        <input class="form-control" type="text" id="pnr">
+                        <input class="form-control" type="text" id="pnr" th:field="*{pnr}">
                         <label for="pnr">Personnummer:</label>
                     </div>
                     <div class="col-md form-floating">
-                        <input class="form-control" type="date" id=birthDate>
+                        <input class="form-control" type="date" id=birthDate th:field="*{birthDate}">
                         <label for="birthDate">Födelsedatum:</label>
                     </div>
                 </div>
                 <div class="row g-2 mb-2">
                     <div class="col-md form-floating">
-                        <input class="form-control" type="text" id="firstName">
+                        <input class="form-control" type="text" id="firstName" th:field="*{firstName}">
                         <label for="firstName">Tilltalsnamn:</label>
                     </div>
                     <div class="col-md form-floating">
-                        <input class="form-control" type="text" id="lastName">
+                        <input class="form-control" type="text" id="lastName" th:field="*{lastName}">
                         <label for="lastName">Efternamn:</label>
                     </div>
                 </div>
@@ -62,11 +62,11 @@
                 <input id="contactInfoId" type="hidden">
                 <div class="row g-2 mb-2">
                     <div class="col-md form-floating">
-                        <input class="form-control" type="email" id="email">
+                        <input class="form-control" type="email" id="email" th:field="*{contactInfo.email}">
                         <label for="email">Epost:</label>
                     </div>
                     <div class="col-md form-floating">
-                        <input class="form-control" type="text" id="phone">
+                        <input class="form-control" type="text" id="phone" th:field="*{contactInfo.phone}">
                         <label for="phone">Telefon:</label>
                     </div>
                 </div>

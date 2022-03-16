@@ -9,6 +9,7 @@ import se.lexicon.g40_jpa_booking.model.dto.form.PatientForm;
 import se.lexicon.g40_jpa_booking.model.entity.Booking;
 import se.lexicon.g40_jpa_booking.model.entity.Patient;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +37,8 @@ public class PatientEntityServiceImpl implements PatientEntityService{
         Patient patient = new Patient();
         patient.setFirstName(patientForm.getFirstName());
         patient.setLastName(patientForm.getLastName());
-        patient.setBirthdate(patientForm.getBirthDate());
+        patient.setPnr(patientForm.getPnr());
+        patient.setBirthdate(LocalDate.parse(patientForm.getBirthDate()));
         patient.setContactInfo(
                 contactInfoEntityService.create(patientForm.getContactInfo())
         );
@@ -71,7 +73,7 @@ public class PatientEntityServiceImpl implements PatientEntityService{
         patient.setFirstName(patientForm.getFirstName());
         patient.setLastName(patientForm.getLastName());
         patient.setPnr(patientForm.getPnr());
-        patient.setBirthdate(patientForm.getBirthDate());
+        patient.setBirthdate(LocalDate.parse(patientForm.getBirthDate()));
 
         return patientDAO.save(patient);
     }
