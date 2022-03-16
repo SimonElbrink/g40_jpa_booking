@@ -26,13 +26,13 @@ public class AppUserEntityServiceImpl implements AppUserEntityService{
 
     @Override
     public AppUser findByUserName(String userName) {
-        return appUserDAO.findByUsername(userName)
+        return appUserDAO.findByUsernameIgnoreCase(userName)
                 .orElseThrow(() -> new AppResourceNotFoundException("Could not find the user with provided userName"));
     }
 
     @Override
     public List<AppUser> findByUserRole(UserRole userRole) {
-        return appUserDAO.findByUserRole(userRole);
+        return appUserDAO.findAllByRole(userRole);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class AppUserEntityServiceImpl implements AppUserEntityService{
         appUser.setUsername(appUserForm.getUsername());
         appUser.setPassword(appUserForm.getPassword());
 
-        AppRole role  = appRoleDAO.findByUserRole(UserRole.ROLE_PATIENT_USER)
+        AppRole role  = appRoleDAO.findByRole(UserRole.ROLE_PATIENT_USER.toString())
                 .orElseThrow(() -> new AppResourceNotFoundException("Could not find AppRole"));
 
         appUser.addRole(role);
@@ -77,6 +77,6 @@ public class AppUserEntityServiceImpl implements AppUserEntityService{
 
     @Override
     public void delete(String id) {
-        appUserDAO.delete(id);
+        appUserDAO.deleteById(id);
     }
 }

@@ -78,7 +78,7 @@ public class PatientEntityServiceImpl implements PatientEntityService{
 
     @Override
     public void delete(String id) {
-        patientDAO.delete(id);
+        patientDAO.deleteById(id);
     }
 
     @Override
