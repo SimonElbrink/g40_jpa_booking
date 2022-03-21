@@ -44,7 +44,7 @@ public class AppUserEntityServiceImpl implements AppUserEntityService{
         appUser.setUsername(appUserForm.getUsername());
         appUser.setPassword(appUserForm.getPassword());
 
-        AppRole role  = appRoleDAO.findByRole(UserRole.ROLE_PATIENT_USER.toString())
+        AppRole role  = appRoleDAO.findByRole(UserRole.ROLE_PATIENT_USER)
                 .orElseThrow(() -> new AppResourceNotFoundException("Could not find AppRole"));
 
         appUser.addRole(role);

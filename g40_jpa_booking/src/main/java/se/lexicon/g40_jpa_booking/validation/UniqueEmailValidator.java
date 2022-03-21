@@ -23,6 +23,6 @@ public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, St
         if(value == null){
             return true;
         }
-        return !contactInfoDAO.findByEmail(value.trim()).isPresent();
+        return !contactInfoDAO.findByEmailIgnoreCase(value.trim()).isPresent();
     }
 }

@@ -23,6 +23,6 @@ public class UniqueUsernameValidator implements ConstraintValidator<UniqueUserna
         if(value == null){
             return true;
         }
-        return !appUserDAO.findByUsername(value).isPresent();
+        return !appUserDAO.findByUsernameIgnoreCase(value).isPresent();
     }
 }
