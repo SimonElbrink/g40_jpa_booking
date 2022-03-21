@@ -8,6 +8,7 @@ import java.util.List;
 public interface PremisesDAO extends JpaRepository<Premises, String> {
 
     List<Premises> findAllByName(String name);
+    long countUsagesByAddressId(String addressId);
 
 
 }
