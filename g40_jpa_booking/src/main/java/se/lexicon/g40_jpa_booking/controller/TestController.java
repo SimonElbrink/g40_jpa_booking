@@ -8,9 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String helloMessage(){
+        return "Hello World";
+    }
+
+    @RequestMapping(value = "/custom", method = RequestMethod.GET)
     public String helloMessage(@RequestParam(value = "message", defaultValue = "Hello World!") String customMessage){
         return customMessage;
     }
+
+
 
 }
