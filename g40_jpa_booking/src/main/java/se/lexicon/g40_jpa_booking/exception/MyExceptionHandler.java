@@ -19,10 +19,8 @@ public class MyExceptionHandler {
         response.setError(httpStatus.name());
         response.setMessage(message);
         response.setPath(request.getDescription(false));
-
        return response;
     }
-
 
     @ExceptionHandler(NullPointerException.class)
     public ResponseEntity<ExceptionResponseDTO> handleNullPointerException(NullPointerException ex, WebRequest request){
@@ -30,7 +28,6 @@ public class MyExceptionHandler {
         return ResponseEntity
                 .status(status)
                 .body(build(ex.getMessage(),request,status));
-
     }
 
     @ExceptionHandler(AppResourceNotFoundException.class)
