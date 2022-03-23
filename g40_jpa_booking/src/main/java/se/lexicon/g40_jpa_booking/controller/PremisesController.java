@@ -5,8 +5,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.lexicon.g40_jpa_booking.model.dto.form.PremisesForm;
+import se.lexicon.g40_jpa_booking.model.dto.view.PremisesDTO;
 import se.lexicon.g40_jpa_booking.model.entity.Premises;
 import se.lexicon.g40_jpa_booking.service.entity.PremisesEntityService;
+import se.lexicon.g40_jpa_booking.service.facade.EntityToDTOConverter;
+import se.lexicon.g40_jpa_booking.service.facade.PremisesService;
 
 import java.util.List;
 
@@ -15,15 +18,18 @@ public class PremisesController {
 
     private final PremisesEntityService premisesEntityService;
 
+    private final PremisesService premisesService;
+
     @Autowired
-    public PremisesController(PremisesEntityService premisesEntityService) {
+    public PremisesController(PremisesEntityService premisesEntityService, PremisesService premisesService) {
         this.premisesEntityService = premisesEntityService;
+        this.premisesService = premisesService;
     }
 
     @GetMapping("/api/v1/premises")
-    public ResponseEntity<List<Premises>> getPremises(){
+    public ResponseEntity<List<PremisesDTO>> getPremises(){
 
-        List<Premises> all = premisesEntityService.findAll();
+        List<PremisesDTO> all = premisesService.findAll();
 
         if (all.isEmpty()){
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
@@ -33,9 +39,8 @@ public class PremisesController {
     }
 
     @GetMapping("/api/v1/premises/{id}")
-    public ResponseEntity<Premises> findById(@PathVariable(value = "id") String premisesId){
-        Premises foundById = premisesEntityService.findById(premisesId);
-        return ResponseEntity.ok(foundById);
+    public ResponseEntity<PremisesDTO> findById(@PathVariable(value = "id") String premisesId){
+        return ResponseEntity.ok(premisesService.findById(premisesId));
     }
 
     @PostMapping("/api/v1/premises")
