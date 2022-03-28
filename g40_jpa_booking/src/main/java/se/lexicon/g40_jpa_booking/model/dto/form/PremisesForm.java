@@ -13,7 +13,7 @@ import static se.lexicon.g40_jpa_booking.validation.messages.ValidationMessages.
 import static se.lexicon.g40_jpa_booking.validation.messages.ValidationMessages.MANDATORY_FORM;
 
 @Validated
-public class PremisesForm implements Serializable {
+public class PremisesForm {
 
     @NotBlank(message = MANDATORY_FIELD, groups = OnPut.class)
     private String id;

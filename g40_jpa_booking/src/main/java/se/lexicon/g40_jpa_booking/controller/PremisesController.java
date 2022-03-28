@@ -3,6 +3,7 @@ package se.lexicon.g40_jpa_booking.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import se.lexicon.g40_jpa_booking.model.dto.form.PremisesForm;
 import se.lexicon.g40_jpa_booking.model.dto.view.PremisesDTO;
@@ -10,6 +11,7 @@ import se.lexicon.g40_jpa_booking.model.entity.Premises;
 import se.lexicon.g40_jpa_booking.service.entity.PremisesEntityService;
 import se.lexicon.g40_jpa_booking.service.facade.EntityToDTOConverter;
 import se.lexicon.g40_jpa_booking.service.facade.PremisesService;
+import se.lexicon.g40_jpa_booking.validation.OnPost;
 
 import java.util.List;
 
@@ -44,7 +46,7 @@ public class PremisesController {
     }
 
     @PostMapping("/api/v1/premises")
-    public ResponseEntity<Premises> create(@RequestBody PremisesForm premisesForm){
+    public ResponseEntity<Premises> create(@Validated(OnPost.class) @RequestBody PremisesForm premisesForm){
         Premises premises = premisesEntityService.create(premisesForm);
         return ResponseEntity.status(HttpStatus.CREATED).body(premises);
     }

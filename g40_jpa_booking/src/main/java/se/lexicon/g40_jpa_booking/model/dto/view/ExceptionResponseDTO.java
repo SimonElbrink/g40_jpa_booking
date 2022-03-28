@@ -10,6 +10,17 @@ public class ExceptionResponseDTO {
     private String message;
     private String path;
 
+    public ExceptionResponseDTO() {
+    }
+
+    public ExceptionResponseDTO(LocalDateTime timestamp, Integer status, String error, String message, String path) {
+        this.timestamp = timestamp;
+        this.status = status;
+        this.error = error;
+        this.message = message;
+        this.path = path;
+    }
+
     public LocalDateTime getTimestamp() {
         return timestamp;
     }
